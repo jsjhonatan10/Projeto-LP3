@@ -13,7 +13,7 @@ $erros = [];
 				'senha' => FILTER_DEFAULT,
 				'confirmaSenha' => FILTER_DEFAULT,
 				'dataNasc' => FILTER_DEFAULT,
-				'visibilidadePublicações' => FILTER_DEFAULT,
+				'visibilidadePublicações' => FILTER_VALIDATE_INT,
 				'alertasEmail' => FILTER_VALIDATE_BOOLEAN,
 				'aceitaTermos' => FILTER_VALIDATE_BOOLEAN,
 			]
@@ -26,11 +26,97 @@ $erros = [];
 	}
  else if( strlen($nomePróprio) < 3 || strlen($nomePróprio) > 35)
 {
-	$erros[] = "A quantidade de caracteres deve estar entre 3 e 35";
+	$erros[] = "A quantidade de caracteres do nome deve estar entre 3 e 35";
 }
+
+	$sobre = $request['sobrenome'];
+	
+	if($sobre == false)
+	{
+		$erros[] = "O sobrenome não é válido";
+	}
+	
+	else if ( strlen($sobre) < 3 || strlen($sobre) > 35)
+	{
+	$erros[] = "A quantidade de caracteres do sobrenome deve estar entre 3 e 35";
+	}
+	
+	$senha = $request['senha'];
+	
+	if($senha == false)
+	{
+		$erros[] = "Insira uma senha";
+	}
+    
+	else if ( strlen($senha) < 6 || strlen($senha) > 12 )
+	{
+		$erros[] = "A quantidade de caracteres do nome deve estar entre 3 e 35";
+	}
+	
+	$confsenha = $request['confirmaSenha'];
+	
+	if($confsenha == false)
+	{
+		$erros[] = "Insira a confirmação de senha";
+	}
+	
+	else if ( strlen($confsenha) < 6 || strlen($confsenha) > 12 )
+	{
+		$erros[] = "O número de caracteres da confirmação de senha deve estar entre 6 e 12";	
+	}
+	
+	
+	$termos = $request['aceitaTermos'];
+	
+	if($termos == false)
+	{
+		$erros[] = "Aceite os termos de uso";
+	}
+
+	
+	
+	if($senha != $confsenha)
+	{
+		$erros[] = "Senhas diferentes"; 
+	}
+	
+	
+	
+	$vis = $request['visibilidadePublicações'];
+	
+	if ($vis != 1 && $vis != 2 && $vis != 3)
+	{
+		$erros[] = "Escolha uma opção";
+	}
+	
+	
+	$nascimento = $request['dataNasc'];
+	$datausuario = DateTime::createFromFormat('Y-m-d', $nascimento);
+	if($datausuario == false)
+	{
+	$erros[] = "Data inválida";
+	}
+	else {
+	$hoje = new DateTime();	
+	$dife = $datausuario->diff($hoje);
+	$anoscorridos = $dife->y;
+	if($anoscorridos < 16)
+	{
+		$erros[] = "Usuário precisa ter mais de 16 anos";
+	
+	}
+	
+	}
 ?>
 
+ 
 
 <?php foreach($erros as $msg) { ?>
 			<li><?= $msg ?></li>
 		<?php } ?>
+		
+
+
+
+    
+	
