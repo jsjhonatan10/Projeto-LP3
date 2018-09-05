@@ -41,6 +41,7 @@
 			];
 
 			// PENDENTE: Inserir novo contato no banco de dados
+			InsereContato($novoContato);
 		}
 	}
 
@@ -86,6 +87,7 @@
 				<dt>Aniversário</dt>
 				<dd><?= $contato['dataNasc'] ?></dd>
 			</dl>
+			<a href=""> Remover</a>
 		</div>
 	<?php } ?>
 
@@ -102,6 +104,7 @@
 		<label>E-Mail: <input name="email" type="email"/></label><br/>
 		<label>Data Nasc.: <input name="dataNasc" type="date"/></label><br/>
 		<input type="submit" value="Adicionar"/>
+		
 	</form>
 </body>
 </html>

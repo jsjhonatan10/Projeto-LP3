@@ -21,4 +21,24 @@
 		// nesse caso porque nós estamos usando exatamente os mesmos nomes nas
 		// colunas da tabela do banco de dados e na nossa aplicação.
 	}
+	
+	function calculamed($x,$y)
+	{
+	}
+	
+	function InsereContato($dadosNovoContato){		
+	$bd = CriaConexãoBd();
+	
+	$sql = $bd -> prepare(
+	"INSERT INTO contatos (nome, tel, email, dataNasc)
+	Values (:valNome, :valTelefone, :valEmail, :valdataNasc);");
+	
+	$sql -> bindValue(':valNome', $dadosNovoContato['nome']);
+	$sql -> bindValue(':valTelefone', $dadosNovoContato['tel']);
+	$sql -> bindValue(':valEmail', $dadosNovoContato['email']);
+	$sql -> bindValue(':valdataNasc', $dadosNovoContato['dataNasc']);
+	
+	$sql->execute();
+	}
+	
 ?>
