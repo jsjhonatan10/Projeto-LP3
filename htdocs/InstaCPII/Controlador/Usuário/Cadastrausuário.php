@@ -50,7 +50,7 @@ $erros = [];
     
 	else if ( strlen($senha) < 6 || strlen($senha) > 12 )
 	{
-		$erros[] = "A quantidade de caracteres do nome deve estar entre 3 e 35";
+		$erros[] = "A quantidade de caracteres da senha deve estar entre 3 e 35";
 	}
 	
 	$confsenha = $request['confirmaSenha'];
