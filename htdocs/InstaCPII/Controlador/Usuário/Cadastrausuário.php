@@ -1,4 +1,5 @@
 <?php
+require_once("../../Tabela/tabelausuario.php");
 $erros = [];
 		
 		$request = array_map('trim', $_REQUEST);
@@ -50,7 +51,7 @@ $erros = [];
     
 	else if ( strlen($senha) < 6 || strlen($senha) > 12 )
 	{
-		$erros[] = "A quantidade de caracteres da senha deve estar entre 3 e 35";
+		$erros[] = "A quantidade de caracteres da senha deve estar entre 6 e 12";
 	}
 	
 	$confsenha = $request['confirmaSenha'];
@@ -107,6 +108,16 @@ $erros = [];
 	}
 	
 	}
+	if(buscausuario($request['email'])>0){
+			$erros[] = "Email já existe" ;
+	}
+	 
+	if (empty($erros) == true) {
+	insereusuario($request);
+	
+	}
+		
+		
 ?>
 
  
