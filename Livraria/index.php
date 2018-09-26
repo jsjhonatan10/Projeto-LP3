@@ -1,28 +1,18 @@
 <?php
 	session_start();
-<<<<<<< HEAD
 
 	if(empty($_SESSION['erroLogin']) == false)
 	{
 	$erro = $_SESSION['erroLogin'];
 	unset($_SESSION['erroLogin']);
-=======
-	
-	if(empty($_SESSION['erroLogin']) == false)
-	{
-	$erro = $_SESSION['erroLogin'];
->>>>>>> 13dabbb18e1e737e3044dbdcdc273067933849d5
 	}
 	else {
 		$erro = null;
 	}
-<<<<<<< HEAD
 	if ($_SESSION['emailUsuarioLogado'] != "") {
 
 		header('Location: pedidos.php');
 	}
-=======
->>>>>>> 13dabbb18e1e737e3044dbdcdc273067933849d5
 ?>
 
 <!-- PENDENTE: Se o usuário já estiver logado, redirecioná-lo para a página de pedidos -->
@@ -44,7 +34,6 @@
 
 		<!-- PENDENTE: Exibir mensagens de erro de login vindas do servidor -->
 		<?php if ($erro != null) { ?>
-<<<<<<< HEAD
 
 			<div class="alert alert-warning">
 				<p> Erro: <?= $erro ?> </p>
@@ -54,17 +43,6 @@
 
 
 
-=======
-		
-			<div class="alert alert-warning">
-				<p> Erro: <?= $erro ?> </p>
-				
-			</div>
-		<?php } ?>
-		
-		
-	
->>>>>>> 13dabbb18e1e737e3044dbdcdc273067933849d5
 
 		<form method="POST" action="Controladores/entrar.php">
 			<div class="form-group">
@@ -77,8 +55,5 @@
 		</form>
 	</div>
 </body>
-<<<<<<< HEAD
 </html>
-=======
-</html>
->>>>>>> 13dabbb18e1e737e3044dbdcdc273067933849d5
+//confere
