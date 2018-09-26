@@ -1,6 +1,7 @@
 <?php
 	require_once('Tabelas/dadosClientes.php');
 
+<<<<<<< HEAD
 
 
 	 session_start();
@@ -12,6 +13,11 @@
 	 $cliente = $dadosClientes[$email];
 
 	 $pedidos = $cliente['pedidos'];
+=======
+	// PENDENTE: Recuperar o usuário logado e os seus pedidos
+	// $cliente = ...;
+	// $pedidos = $cliente['pedidos'];
+>>>>>>> 13dabbb18e1e737e3044dbdcdc273067933849d5
 
 	// Se der erro de classe NumberFormatter não encontrada, habilitar a extensão `extension=intl` no arquivo <XAMPP>/php/php.ini
 	$fmt = new NumberFormatter('pt_BR', NumberFormatter::CURRENCY);
@@ -55,4 +61,8 @@
 		<p>Total de pedidos: <b><?= count($pedidos) ?></b></p>
 	</div>
 </body>
+<<<<<<< HEAD
 </html>
+=======
+</html>
+>>>>>>> 13dabbb18e1e737e3044dbdcdc273067933849d5

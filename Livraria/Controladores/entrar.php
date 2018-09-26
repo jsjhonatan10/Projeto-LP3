@@ -21,6 +21,7 @@
 	{
 		$erro = "Senha não informada";
 	}
+<<<<<<< HEAD
 
 	else if (array_key_exists($email, $dadosClientes) == false)
 	{
@@ -28,15 +29,32 @@
 	}
 
 	else if (password_verify($senha, $dadosClientes[$email]['senha']) == false)
+=======
+	// PENDENTE: Concluir a validação
+	else if (array_key_exists($email, $dadosClientes) == false)
+	{
+		$erro = "Nenhum usuário cadastrado com o email informado";
+	} 
+	
+	else if (password_verify($senha, $dadosClientes['$email']['senha']) == false)
+>>>>>>> 13dabbb18e1e737e3044dbdcdc273067933849d5
 	{
 		$erro = "Senha inválida";
 	}
 
+<<<<<<< HEAD
+=======
+
+	// PENDENTE: Em caso de sucesso, redirecionar o usuário para a página de pedidos
+
+	// PENDENTE: Em caso de erro, redirecionar usuário para a página de login para exibir as mensagens de erro
+>>>>>>> 13dabbb18e1e737e3044dbdcdc273067933849d5
 	if($erro != null){
 		session_start();
 		$_SESSION['erroLogin'] = $erro;
 		header('Location: ../index.php');
 	}
+<<<<<<< HEAD
 
 	else{
 		session_start();
@@ -44,3 +62,6 @@
 		header('Location: ../pedidos.php');
 	}
 ?>
+=======
+?>
+>>>>>>> 13dabbb18e1e737e3044dbdcdc273067933849d5
